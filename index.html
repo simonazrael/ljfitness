@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LJ Fitness Gym | Pampanga</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              lime: '#CCFF00',
+              dark: '#0D0D0D',
+              card: '#161616',
+              border: '#262626',
+              accent: '#1E1E1E'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Inter:wght@300;400;600;800&display=swap');
+    body { font-family: 'Inter', sans-serif; background-color: #0D0D0D; color: #E5E5E5; }
+    h1, h2, h3, .font-heading { font-family: 'Teko', sans-serif; text-transform: uppercase; letter-spacing: 0.05em; }
+    .glow-lime { box-shadow: 0 0 20px rgba(204, 255, 0, 0.2); }
+    .glow-lime-sm { box-shadow: 0 0 10px rgba(204, 255, 0, 0.15); }
+    .scan-line { animation: scan 2s linear infinite; }
+    @keyframes scan {
+      0% { top: 0%; opacity: 0.8; }
+      50% { opacity: 0.3; }
+      100% { top: 100%; opacity: 0.8; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-brand-lime selection:text-black">
+
+  <!-- NAVIGATION BAR -->
+  <header class="sticky top-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div class="flex items-center space-x-3 cursor-pointer" onclick="switchPage('home')">
+        <div class="w-10 h-10 bg-brand-lime text-black flex items-center justify-center font-bold text-2xl rounded-sm">LJ</div>
+        <div>
+          <span class="text-2xl font-bold font-heading leading-none block text-white">LJ FITNESS <span class="text-brand-lime">GYM</span></span>
+          <span class="text-[10px] tracking-widest text-gray-400 block uppercase">Pampanga Branch</span>
+        </div>
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex space-x-6 text-sm font-semibold tracking-wider uppercase">
+        <button onclick="switchPage('home')" class="nav-btn text-brand-lime hover:text-brand-lime transition" data-target="home">Home</button>
+        <button onclick="switchPage('facilities')" class="nav-btn text-gray-400 hover:text-brand-lime transition" data-target="facilities">Facilities & Gear</button>
+        <button onclick="switchPage('memberships')" class="nav-btn text-gray-400 hover:text-brand-lime transition" data-target="memberships">Memberships</button>
+        <button onclick="switchPage('kiosk')" class="nav-btn text-gray-400 hover:text-brand-lime transition" data-target="kiosk">Biometric Kiosk</button>
+        <button onclick="switchPage('calculator')" class="nav-btn text-gray-400 hover:text-brand-lime transition" data-target="calculator">Macro & Food Calc</button>
+        <button onclick="switchPage('schedule')" class="nav-btn text-gray-400 hover:text-brand-lime transition" data-target="schedule">Schedule</button>
+        <button onclick="switchPage('contact')" class="nav-btn text-gray-400 hover:text-brand-lime transition" data-target="contact">Contact</button>
+      </nav>
+
+      <div class="hidden lg:flex items-center space-x-4">
+        <button onclick="switchPage('memberships')" class="bg-brand-lime text-black px-5 py-2.5 font-bold font-heading text-lg rounded-sm hover:bg-lime-400 transition transform hover:-translate-y-0.5">
+          JOIN NOW
+        </button>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button onclick="toggleMobileMenu()" class="lg:hidden text-2xl text-white focus:outline-none">
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Nav -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-brand-card border-b border-brand-border px-6 py-4 space-y-3">
+      <button onclick="switchPage('home')" class="block w-full text-left py-2 font-bold uppercase text-brand-lime">Home</button>
+      <button onclick="switchPage('facilities')" class="block w-full text-left py-2 font-bold uppercase text-gray-300">Facilities & Gear</button>
+      <button onclick="switchPage('memberships')" class="block w-full text-left py-2 font-bold uppercase text-gray-300">Memberships</button>
+      <button onclick="switchPage('kiosk')" class="block w-full text-left py-2 font-bold uppercase text-gray-300">Biometric Kiosk</button>
+      <button onclick="switchPage('calculator')" class="block w-full text-left py-2 font-bold uppercase text-gray-300">Macro & Food Calc</button>
+      <button onclick="switchPage('schedule')" class="block w-full text-left py-2 font-bold uppercase text-gray-300">Schedule</button>
+      <button onclick="switchPage('contact')" class="block w-full text-left py-2 font-bold uppercase text-gray-300">Contact</button>
+    </div>
+  </header>
+
+  <!-- DYNAMIC PAGES CONTAINER -->
+  <main class="flex-grow">
+
+    <!-- PAGE 1: HOME -->
+    <section id="page-home" class="page-content">
+      <div class="relative bg-gradient-to-r from-black via-brand-card to-black py-24 border-b border-brand-border overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#CCFF00_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="inline-flex items-center space-x-2 bg-brand-lime/10 border border-brand-lime/30 px-3 py-1 rounded-full mb-6">
+              <span class="w-2 h-2 rounded-full bg-brand-lime animate-pulse"></span>
+              <span class="text-xs font-bold text-brand-lime uppercase tracking-widest">Industrial-Modern Strength Hub</span>
+            </div>
+            <h1 class="text-6xl sm:text-7xl font-bold text-white leading-none">
+              FORGE YOUR <br/><span class="text-brand-lime">UNBREAKABLE</span> BODY
+            </h1>
+            <p class="text-gray-400 mt-6 text-lg max-w-xl">
+              Pampanga’s premier two-level facility equipped with heavy-duty iron, mezzanine cardio deck, touchless facial recognition entry, and hybrid solar backup power.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <button onclick="switchPage('memberships')" class="bg-brand-lime text-black px-8 py-3.5 font-bold font-heading text-xl rounded-sm hover:bg-lime-400 transition glow-lime">
+                GET MEMBERSHIP
+              </button>
+              <button onclick="switchPage('kiosk')" class="border border-brand-border hover:border-brand-lime text-white px-8 py-3.5 font-bold font-heading text-xl rounded-sm transition">
+                DEMO ACCESS KIOSK
+              </button>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="bg-brand-card border border-brand-border p-6 rounded-lg glow-lime-sm">
+              <div class="flex items-center justify-between border-b border-brand-border pb-4 mb-4">
+                <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Operating Specs</span>
+                <span class="text-xs bg-amber-500/20 text-amber-400 px-2 py-0.5 rounded font-mono font-bold">SOLAR BACKUP ACTIVE</span>
+              </div>
+              <div class="space-y-4">
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-300 font-semibold text-sm">Gym Operating Hours</span>
+                  <span class="text-white font-mono text-sm font-bold">6:00 AM – 10:00 PM Daily</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-300 font-semibold text-sm">Facial Recognition Check-in</span>
+                  <span class="text-brand-lime font-mono text-sm font-bold">TVT Biometric Active</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-300 font-semibold text-sm">Heavy Dumbbell Rack</span>
+                  <span class="text-white font-mono text-sm font-bold">Up to 150 LBS Solid Iron</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-300 font-semibold text-sm">Power Outage Protection</span>
+                  <span class="text-brand-lime font-mono text-sm font-bold">Hybrid Battery Bank Backup</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="text-center mb-16">
+          <h2 class="text-5xl font-bold text-white">ENGINEERED FOR <span class="text-brand-lime">RESULTS</span></h2>
+          <p class="text-gray-400 text-sm uppercase tracking-widest">Built with precision for serious lifters and athletes</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-brand-card border border-brand-border p-8 rounded-sm hover:border-brand-lime transition">
+            <div class="w-12 h-12 bg-brand-lime/10 text-brand-lime flex items-center justify-center text-2xl mb-6 rounded-sm">
+              <i class="fa-solid fa-dumbbell"></i>
+            </div>
+            <h3 class="text-3xl font-bold text-white mb-2">Heavy Iron Arsenal</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Equipped with solid-iron heavy dumbbells reaching 150 lbs, competition bench presses, power racks, and biomechanically tuned leg presses.
+            </p>
+          </div>
+          <div class="bg-brand-card border border-brand-border p-8 rounded-sm hover:border-brand-lime transition">
+            <div class="w-12 h-12 bg-brand-lime/10 text-brand-lime flex items-center justify-center text-2xl mb-6 rounded-sm">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <h3 class="text-3xl font-bold text-white mb-2">Solar Backup System</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Grid outages will not stop your workout. Our hybrid inverter and stationary battery system keep illumination and high-velocity airflow fans operational.
+            </p>
+          </div>
+          <div class="bg-brand-card border border-brand-border p-8 rounded-sm hover:border-brand-lime transition">
+            <div class="w-12 h-12 bg-brand-lime/10 text-brand-lime flex items-center justify-center text-2xl mb-6 rounded-sm">
+              <i class="fa-solid fa-id-card-clip"></i>
+            </div>
+            <h3 class="text-3xl font-bold text-white mb-2">Touchless Smart Access</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              No cards or keyfobs required. Seamlessly enter the facility using high-speed TVT facial recognition hardware linked directly to active memberships.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2: FACILITIES & EQUIPMENT -->
+    <section id="page-facilities" class="page-content hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div>
+            <h1 class="text-6xl font-bold text-white">THE <span class="text-brand-lime">FACILITY & GEAR</span></h1>
+            <p class="text-gray-400 text-sm uppercase tracking-widest">Two Levels of Commercial-Grade Performance Hardware</p>
+          </div>
+          <div class="mt-6 md:mt-0 flex flex-wrap gap-2">
+            <button onclick="filterGear('all')" class="gear-filter-btn bg-brand-lime text-black font-bold px-4 py-2 text-sm uppercase rounded-sm">All Hardware</button>
+            <button onclick="filterGear('heavy')" class="gear-filter-btn bg-brand-card border border-brand-border text-gray-300 font-bold px-4 py-2 text-sm uppercase rounded-sm hover:border-brand-lime">Heavy Strength</button>
+            <button onclick="filterGear('cardio')" class="gear-filter-btn bg-brand-card border border-brand-border text-gray-300 font-bold px-4 py-2 text-sm uppercase rounded-sm hover:border-brand-lime">Mezzanine Cardio</button>
+            <button onclick="filterGear('power')" class="gear-filter-btn bg-brand-card border border-brand-border text-gray-300 font-bold px-4 py-2 text-sm uppercase rounded-sm hover:border-brand-lime">Solar System</button>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gear-grid">
+          <div class="gear-item heavy bg-brand-card border border-brand-border p-6 rounded-sm">
+            <div class="text-xs font-mono text-brand-lime uppercase tracking-widest mb-2">Level 1 // Free Weights</div>
+            <h3 class="text-2xl font-bold text-white mb-2">Welded Solid-Iron Dumbbells</h3>
+            <p class="text-gray-400 text-sm mb-4">Pairs up to 150 lbs for heavy pressing and rowing, backed by rubber-hex options for lighter isolation work.</p>
+            <span class="inline-block bg-brand-accent text-gray-300 text-xs px-3 py-1 font-mono">10 LBS - 150 LBS</span>
+          </div>
+
+          <div class="gear-item heavy bg-brand-card border border-brand-border p-6 rounded-sm">
+            <div class="text-xs font-mono text-brand-lime uppercase tracking-widest mb-2">Level 1 // Main Floor</div>
+            <h3 class="text-2xl font-bold text-white mb-2">Power Racks & Squat Platforms</h3>
+            <p class="text-gray-400 text-sm mb-4">Heavy-gauge steel squat cages with integrated pull-up bars and Olympic bumper plates.</p>
+            <span class="inline-block bg-brand-accent text-gray-300 text-xs px-3 py-1 font-mono">3 Full Cages</span>
+          </div>
+
+          <div class="gear-item heavy bg-brand-card border border-brand-border p-6 rounded-sm">
+            <div class="text-xs font-mono text-brand-lime uppercase tracking-widest mb-2">Level 1 // Biomechanics</div>
+            <h3 class="text-2xl font-bold text-white mb-2">Plate-Loaded Leg Press</h3>
+            <p class="text-gray-400 text-sm mb-4">45-degree heavy leg press engineered with smooth roller bearings for maximum quad isolation.</p>
+            <span class="inline-block bg-brand-accent text-gray-300 text-xs px-3 py-1 font-mono">1,000 LB Capacity</span>
+          </div>
+
+          <div class="gear-item cardio bg-brand-card border border-brand-border p-6 rounded-sm">
+            <div class="text-xs font-mono text-brand-lime uppercase tracking-widest mb-2">Level 2 // Mezzanine Deck</div>
+            <h3 class="text-2xl font-bold text-white mb-2">Commercial Treadmills</h3>
+            <p class="text-gray-400 text-sm mb-4">High-shock absorption decks with incline controls overlooking the main strength floor.</p>
+            <span class="inline-block bg-brand-accent text-gray-300 text-xs px-3 py-1 font-mono">Mezzanine Level</span>
+          </div>
+
+          <div class="gear-item cardio bg-brand-card border border-brand-border p-6 rounded-sm">
+            <div class="text-xs font-mono text-brand-lime uppercase tracking-widest mb-2">Level 2 // Mezzanine Deck</div>
+            <h3 class="text-2xl font-bold text-white mb-2">Spin Bikes & Ergometers</h3>
+            <p class="text-gray-400 text-sm mb-4">Magnetic resistance indoor cycles designed for interval cardio and steady-state conditioning.</p>
+            <span class="inline-block bg-brand-accent text-gray-300 text-xs px-3 py-1 font-mono">High-Intensity Cardio</span>
+          </div>
+
+          <div class="gear-item power bg-brand-card border border-brand-border p-6 rounded-sm">
+            <div class="text-xs font-mono text-brand-lime uppercase tracking-widest mb-2">Infrastructure // Backup Power</div>
+            <h3 class="text-2xl font-bold text-white mb-2">Hybrid Solar Inverter & Battery Bank</h3>
+            <p class="text-gray-400 text-sm mb-4">Dedicated hybrid solar storage system powering high-velocity ventilation fans and facility lighting during power drops.</p>
+            <span class="inline-block bg-brand-accent text-gray-300 text-xs px-3 py-1 font-mono">Emergency Outage Ready</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3: MEMBERSHIPS -->
+    <section id="page-memberships" class="page-content hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center mb-12">
+          <h1 class="text-6xl font-bold text-white">MEMBERSHIP <span class="text-brand-lime">PLANS</span></h1>
+          <p class="text-gray-400 text-sm uppercase tracking-widest">Straightforward pricing. No hidden fees.</p>
+          
+          <div class="inline-flex items-center bg-brand-card border border-brand-border p-1 rounded-sm mt-8">
+            <button id="toggle-monthly" onclick="setBilling('monthly')" class="px-6 py-2 text-sm font-bold uppercase rounded-sm bg-brand-lime text-black">Monthly</button>
+            <button id="toggle-annual" onclick="setBilling('annual')" class="px-6 py-2 text-sm font-bold uppercase rounded-sm text-gray-400 hover:text-white">Annual (Save 15%)</button>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-brand-card border border-brand-border p-8 rounded-sm flex flex-col justify-between">
+            <div>
+              <div class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-2">Flexibility</div>
+              <h3 class="text-3xl font-bold text-white">Day Pass</h3>
+              <div class="my-6">
+                <span class="text-5xl font-bold text-white font-heading">₱150</span>
+                <span class="text-gray-400 text-sm">/ visit</span>
+              </div>
+              <ul class="space-y-3 text-sm text-gray-300 mb-8">
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-lime mr-3"></i> Full access to Level 1 & 2</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-lime mr-3"></i> Locker room & shower access</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-lime mr-3"></i> Operating hours entry</li>
+              </ul>
+            </div>
+            <button onclick="openSignupModal('Day Pass')" class="w-full bg-brand-accent hover:bg-gray-800 text-white font-bold font-heading py-3 text-lg rounded-sm transition border border-brand-border">
+              SELECT PASS
+            </button>
+          </div>
+
+          <div class="bg-brand-card border-2 border-brand-lime p-8 rounded-sm flex flex-col justify-between relative glow-lime-sm">
+            <div class="absolute -top-3 right-6 bg-brand-lime text-black text-xs font-bold font-mono px-3 py-1 uppercase">Most Popular</div>
+            <div>
+              <div class="text-xs font-mono text-brand-lime uppercase tracking-widest mb-2">Full Access</div>
+              <h3 class="text-3xl font-bold text-white">Standard Athlete</h3>
+              <div class="my-6">
+                <span class="text-5xl font-bold text-brand-lime font-heading" id="price-standard">₱1,200</span>
+                <span class="text-gray-400 text-sm" id="period-standard">/ month</span>
+              </div>
+              <ul class="space-y-3 text-sm text-gray-300 mb-8">
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-lime mr-3"></i> Touchless Biometric Facial Access</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-lime mr-3"></i> Unlimited Gym & Mezzanine Access</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-lime mr-3"></i> Solar Backup Ventilation Included</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-lime mr-3"></i> Free Locker Usage</li>
+              </ul>
+            </div>
+            <button onclick="openSignupModal('Standard Athlete')" class="w-full bg-brand-lime text-black font-bold font-heading py-3 text-lg rounded-sm hover:bg-lime-400 transition">
+              REGISTER NOW
+            </button>
+          </div>
+
+          <div class="bg-brand-card border border-brand-border p-8 rounded-sm flex flex-col justify-between">
+            <div>
+              <div class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-2">Student Rate</div>
+              <h3 class="text-3xl font-bold text-white">Student Scholar</h3>
+              <div class="my-6">
+                <span class="text-5xl font-bold text-white font-heading" id="price-student">₱950</span>
+                <span class="text-gray-400 text-sm" id="period-student">/ month</span>
+              </div>
+              <ul class="space-y-3 text-sm text-gray-300 mb-8">
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-lime mr-3"></i> Valid Student ID required</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-lime mr-3"></i> Facial Recognition Access</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-lime mr-3"></i> All Equipment & Cardio Deck</li>
+              </ul>
+            </div>
+            <button onclick="openSignupModal('Student Scholar')" class="w-full bg-brand-accent hover:bg-gray-800 text-white font-bold font-heading py-3 text-lg rounded-sm transition border border-brand-border">
+              REGISTER STUDENT
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 4: BIOMETRIC KIOSK DEMO -->
+    <section id="page-kiosk" class="page-content hidden">
+      <div class="max-w-4xl mx-auto px-4 py-16">
+        <div class="text-center mb-10">
+          <div class="inline-block bg-brand-lime/10 text-brand-lime font-mono text-xs px-3 py-1 rounded mb-3">HARDWARE INTERFACE DEMO</div>
+          <h1 class="text-5xl font-bold text-white">TVT <span class="text-brand-lime">FACIAL RECOGNITION</span> CHECK-IN</h1>
+          <p class="text-gray-400 text-sm">Simulate member entry verification at the LJ Fitness turnstile gate</p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border p-8 rounded-lg max-w-xl mx-auto shadow-2xl">
+          <!-- Interactive Name Input -->
+          <div class="mb-6">
+            <label class="block text-xs font-mono text-brand-lime uppercase mb-2">Demo Member Name Input:</label>
+            <input type="text" id="kiosk-custom-name" value="ALEX RIVERA" placeholder="Type any name..." class="w-full bg-black border border-brand-border text-white text-sm p-3 rounded outline-none focus:border-brand-lime font-mono tracking-wider">
+          </div>
+
+          <!-- Scanner Screen -->
+          <div class="relative bg-black h-72 rounded border border-brand-border flex flex-col items-center justify-center overflow-hidden mb-6">
+            <div class="absolute inset-0 scan-line bg-gradient-to-b from-brand-lime/30 to-transparent h-1/4"></div>
+            
+            <div id="kiosk-status-icon" class="text-6xl text-gray-600 mb-4">
+              <i class="fa-solid fa-user-shield"></i>
+            </div>
+            <div id="kiosk-status-text" class="text-xl font-heading text-gray-400 tracking-wider">
+              AWAITING SCANNER TRIGGER
+            </div>
+            <div id="kiosk-member-info" class="hidden text-center mt-2">
+              <div class="text-brand-lime font-bold text-lg uppercase" id="kiosk-name">ALEX RIVERA</div>
+              <div class="text-xs font-mono text-gray-400">STATUS: ACTIVE MEMBER</div>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <div class="space-y-3">
+            <button onclick="simulateScan('success')" class="w-full bg-brand-lime text-black font-bold font-heading text-lg py-3 rounded-sm hover:bg-lime-400 transition">
+              SIMULATE VALID MEMBER ACCESS
+            </button>
+            <button onclick="simulateScan('denied')" class="w-full bg-red-900/40 text-red-400 border border-red-800 font-bold font-heading text-lg py-3 rounded-sm hover:bg-red-900/60 transition">
+              SIMULATE EXPIRED / UNKNOWN SCAN
+            </button>
+          </div>
+
+          <!-- Log Console -->
+          <div class="mt-6 border-t border-brand-border pt-4">
+            <div class="text-xs font-mono text-gray-500 mb-2">LOCAL SERVER EVENT LOG:</div>
+            <div id="kiosk-log" class="bg-black/60 p-3 rounded text-xs font-mono h-24 overflow-y-auto space-y-1 text-gray-400">
+              <div>[SYSTEM]: TVT Terminal Initialized... Ready for input.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 5: CALORIE, MACRO & INTERACTIVE FOOD INTAKE CALCULATOR -->
+    <section id="page-calculator" class="page-content hidden">
+      <div class="max-w-5xl mx-auto px-4 py-16">
+        <div class="text-center mb-10">
+          <div class="inline-block bg-brand-lime/10 text-brand-lime font-mono text-xs px-3 py-1 rounded mb-3">NUTRITION & DIET ENGINE</div>
+          <h1 class="text-5xl font-bold text-white">MACRO & <span class="text-brand-lime">FOOD INTAKE CALCULATOR</span></h1>
+          <p class="text-gray-400 text-sm">Set your daily energy targets and dynamically log custom food items & weight in grams</p>
+        </div>
+
+        <!-- 1. BMR & TDEE Target Calculator -->
+        <div class="grid md:grid-cols-2 gap-8 bg-brand-card border border-brand-border p-8 rounded-lg shadow-2xl mb-12">
+          <div class="space-y-4">
+            <h3 class="text-2xl font-bold text-white border-b border-brand-border pb-2">1. Your Body Parameters</h3>
+            
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs text-gray-400 mb-1">Sex</label>
+                <select id="calc-sex" class="w-full bg-black border border-brand-border text-white text-sm p-2.5 rounded focus:border-brand-lime outline-none">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs text-gray-400 mb-1">Age (Years)</label>
+                <input type="number" id="calc-age" value="25" class="w-full bg-black border border-brand-border text-white text-sm p-2.5 rounded focus:border-brand-lime outline-none">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs text-gray-400 mb-1">Height (cm)</label>
+                <input type="number" id="calc-height" value="175" class="w-full bg-black border border-brand-border text-white text-sm p-2.5 rounded focus:border-brand-lime outline-none">
+              </div>
+              <div>
+                <label class="block text-xs text-gray-400 mb-1">Weight (kg)</label>
+                <input type="number" id="calc-weight" value="75" class="w-full bg-black border border-brand-border text-white text-sm p-2.5 rounded focus:border-brand-lime outline-none">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs text-gray-400 mb-1">Activity Multiplier</label>
+              <select id="calc-activity" class="w-full bg-black border border-brand-border text-white text-sm p-2.5 rounded focus:border-brand-lime outline-none">
+                <option value="1.2">Sedentary (Little/no exercise)</option>
+                <option value="1.375">Lightly Active (1-3 days/week)</option>
+                <option value="1.55" selected>Moderately Active (3-5 days gym)</option>
+                <option value="1.725">Very Active (Heavy lifts 6-7 days)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs text-gray-400 mb-1">Primary Goal</label>
+              <select id="calc-goal" class="w-full bg-black border border-brand-border text-white text-sm p-2.5 rounded focus:border-brand-lime outline-none">
+                <option value="cut">Fat Loss (-500 kcal deficit)</option>
+                <option value="maintain" selected>Maintenance (Recomposition)</option>
+                <option value="bulk">Lean Bulk (+300 kcal surplus)</option>
+              </select>
+            </div>
+
+            <button onclick="calculateMacros()" class="w-full bg-brand-lime text-black font-bold font-heading text-xl py-3 rounded-sm hover:bg-lime-400 transition mt-2">
+              COMPUTE TARGET GOAL
+            </button>
+          </div>
+
+          <div class="bg-black/60 border border-brand-border p-6 rounded flex flex-col justify-between">
+            <div>
+              <h3 class="text-2xl font-bold text-white border-b border-brand-border pb-2 mb-4">2. Calculated Target</h3>
+              
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="bg-brand-card p-3 rounded border border-brand-border">
+                  <span class="text-[10px] font-mono text-gray-400 block uppercase">Basal Metabolic Rate</span>
+                  <span class="text-2xl font-bold text-white font-heading" id="res-bmr">1,717</span> <span class="text-xs text-gray-400">kcal</span>
+                </div>
+                <div class="bg-brand-card p-3 rounded border border-brand-border">
+                  <span class="text-[10px] font-mono text-brand-lime block uppercase">Target Daily Energy</span>
+                  <span class="text-2xl font-bold text-brand-lime font-heading" id="res-tdee">2,661</span> <span class="text-xs text-gray-400">kcal</span>
+                </div>
+              </div>
+
+              <div class="space-y-3">
+                <div class="flex justify-between items-center text-sm">
+                  <span class="text-gray-300 font-semibold"><i class="fa-solid fa-drumstick-bite text-brand-lime mr-2"></i>Target Protein</span>
+                  <span class="font-mono text-white font-bold" id="res-protein">150g</span>
+                </div>
+                <div class="flex justify-between items-center text-sm pt-1">
+                  <span class="text-gray-300 font-semibold"><i class="fa-solid fa-bread-slice text-amber-400 mr-2"></i>Target Carbs</span>
+                  <span class="font-mono text-white font-bold" id="res-carbs">296g</span>
+                </div>
+                <div class="flex justify-between items-center text-sm pt-1">
+                  <span class="text-gray-300 font-semibold"><i class="fa-solid fa-avocado text-emerald-400 mr-2"></i>Target Fats</span>
+                  <span class="font-mono text-white font-bold" id="res-fats">97g</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 border-t border-brand-border pt-4">
+              <span class="text-xs font-mono text-gray-400 block mb-1">INTAKE vs TARGET PROGRESS:</span>
+              <div class="w-full bg-gray-800 h-4 rounded-full overflow-hidden relative">
+                <div id="intake-progress-bar" class="bg-brand-lime h-full transition-all duration-500" style="width: 0%"></div>
+              </div>
+              <div class="flex justify-between text-xs font-mono mt-1">
+                <span class="text-gray-400" id="intake-logged-txt">Logged: 0 kcal</span>
+                <span class="text-brand-lime" id="intake-target-txt">Target: 2,661 kcal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Interactive Food Calories Intake Calculator -->
+        <div class="bg-brand-card border border-brand-border p-8 rounded-lg shadow-2xl">
+          <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-brand-border pb-4 mb-6 gap-4">
+            <div>
+              <h3 class="text-3xl font-bold text-white">INTERACTIVE FOOD INTAKE LOG</h3>
+              <p class="text-xs text-gray-400">Type any food and enter its weight in grams to calculate macros</p>
+            </div>
+            <button onclick="clearFoodLog()" class="text-xs font-mono text-red-400 hover:text-red-300 border border-red-900 bg-red-950/40 px-3 py-1.5 rounded transition">
+              CLEAR LOG
+            </button>
+          </div>
+
+          <!-- Add Food Form -->
+          <form onsubmit="addFoodItem(event)" class="grid sm:grid-cols-12 gap-4 mb-8">
+            <div class="sm:col-span-5">
+              <label class="block text-xs font-mono text-gray-400 mb-1">Food Item Name / Keyword</label>
+              <input type="text" id="food-name" required placeholder="e.g. Chicken Breast, Rice, Eggs, Oats..." class="w-full bg-black border border-brand-border text-white text-sm p-3 rounded outline-none focus:border-brand-lime">
+            </div>
+            <div class="sm:col-span-4">
+              <label class="block text-xs font-mono text-gray-400 mb-1">Weight / Amount (Grams)</label>
+              <input type="number" id="food-grams" required min="1" value="150" placeholder="100" class="w-full bg-black border border-brand-border text-white text-sm p-3 rounded outline-none focus:border-brand-lime">
+            </div>
+            <div class="sm:col-span-3 flex items-end">
+              <button type="submit" class="w-full bg-brand-lime text-black font-bold font-heading text-xl h-[46px] rounded-sm hover:bg-lime-400 transition">
+                + ADD FOOD ITEM
+              </button>
+            </div>
+          </form>
+
+          <!-- Food Log Table -->
+          <div class="overflow-x-auto border border-brand-border rounded mb-6">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-brand-border text-xs font-mono text-gray-400 uppercase bg-black/40">
+                  <th class="p-3">Food Item</th>
+                  <th class="p-3">Grams</th>
+                  <th class="p-3">Calories</th>
+                  <th class="p-3">Protein</th>
+                  <th class="p-3">Carbs</th>
+                  <th class="p-3">Fats</th>
+                  <th class="p-3 text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody id="food-log-body" class="divide-y divide-brand-border text-sm font-mono text-gray-300">
+                <!-- Dynamic Rows Inserted Here -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Total Summary Cards -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="bg-black/60 p-4 rounded border border-brand-border">
+              <span class="text-[10px] font-mono text-gray-400 block uppercase">Total Calories</span>
+              <span class="text-2xl font-bold text-brand-lime font-heading" id="sum-calories">0</span> <span class="text-xs text-gray-400">kcal</span>
+            </div>
+            <div class="bg-black/60 p-4 rounded border border-brand-border">
+              <span class="text-[10px] font-mono text-gray-400 block uppercase">Total Protein</span>
+              <span class="text-2xl font-bold text-white font-heading" id="sum-protein">0</span> <span class="text-xs text-gray-400">g</span>
+            </div>
+            <div class="bg-black/60 p-4 rounded border border-brand-border">
+              <span class="text-[10px] font-mono text-gray-400 block uppercase">Total Carbs</span>
+              <span class="text-2xl font-bold text-amber-400 font-heading" id="sum-carbs">0</span> <span class="text-xs text-gray-400">g</span>
+            </div>
+            <div class="bg-black/60 p-4 rounded border border-brand-border">
+              <span class="text-[10px] font-mono text-gray-400 block uppercase">Total Fats</span>
+              <span class="text-2xl font-bold text-emerald-400 font-heading" id="sum-fats">0</span> <span class="text-xs text-gray-400">g</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 6: SCHEDULE -->
+    <section id="page-schedule" class="page-content hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center mb-12">
+          <h1 class="text-6xl font-bold text-white">OPERATING HOURS & <span class="text-brand-lime">SCHEDULE</span></h1>
+          <p class="text-gray-400 text-sm uppercase tracking-widest">Note: LJ Fitness is open 6:00 AM – 10:00 PM Daily (Not 24/7 Operation)</p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border rounded-sm overflow-hidden">
+          <div class="p-6 border-b border-brand-border bg-black/40 flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+              <i class="fa-solid fa-clock text-brand-lime text-xl"></i>
+              <span class="font-bold text-white uppercase text-sm">Facility Schedule</span>
+            </div>
+            <span class="text-xs font-mono bg-brand-accent px-3 py-1 text-gray-300 rounded">HOURS: 06:00 - 22:00</span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-brand-border text-xs font-mono text-gray-400 uppercase bg-black/20">
+                  <th class="p-4">Time Slot</th>
+                  <th class="p-4">Activity Zone</th>
+                  <th class="p-4">Focus</th>
+                  <th class="p-4">Facility State</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-brand-border text-sm text-gray-300">
+                <tr>
+                  <td class="p-4 font-mono font-bold text-white">06:00 AM - 09:00 AM</td>
+                  <td class="p-4">Main Floor & Mezzanine</td>
+                  <td class="p-4">Morning Strength & Fasted Cardio</td>
+                  <td class="p-4"><span class="text-brand-lime font-mono text-xs">OPEN // Standard Grid</span></td>
+                </tr>
+                <tr>
+                  <td class="p-4 font-mono font-bold text-white">09:00 AM - 04:00 PM</td>
+                  <td class="p-4">All Levels</td>
+                  <td class="p-4">Open Training & Hypertrophy Blocks</td>
+                  <td class="p-4"><span class="text-brand-lime font-mono text-xs">OPEN // Solar Supplement</span></td>
+                </tr>
+                <tr>
+                  <td class="p-4 font-mono font-bold text-white">04:00 PM - 09:30 PM</td>
+                  <td class="p-4">Main Floor</td>
+                  <td class="p-4">Peak Heavy Lifting Hours</td>
+                  <td class="p-4"><span class="text-brand-lime font-mono text-xs">OPEN // Prime Time</span></td>
+                </tr>
+                <tr class="bg-red-950/20">
+                  <td class="p-4 font-mono font-bold text-red-400">10:00 PM - 06:00 AM</td>
+                  <td class="p-4 text-gray-500">Entire Facility</td>
+                  <td class="p-4 text-gray-500">CLOSED // Overnight Maintenance</td>
+                  <td class="p-4"><span class="text-red-400 font-mono text-xs">CLOSED</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 7: CONTACT -->
+    <section id="page-contact" class="page-content hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid lg:grid-cols-2 gap-12">
+          <div>
+            <h1 class="text-6xl font-bold text-white">GET IN <span class="text-brand-lime">TOUCH</span></h1>
+            <p class="text-gray-400 text-sm mb-8">Have questions regarding memberships, equipment, or facility access? Send a message directly to our desk.</p>
+
+            <div class="space-y-6">
+              <div class="flex items-start space-x-4">
+                <div class="w-10 h-10 bg-brand-lime/10 text-brand-lime flex items-center justify-center text-lg rounded-sm shrink-0">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div>
+                  <h4 class="text-white font-bold uppercase font-heading text-xl">Location</h4>
+                  <p class="text-gray-400 text-sm">LJ Fitness Gym, Pampanga, Philippines</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-4">
+                <div class="w-10 h-10 bg-brand-lime/10 text-brand-lime flex items-center justify-center text-lg rounded-sm shrink-0">
+                  <i class="fa-solid fa-clock"></i>
+                </div>
+                <div>
+                  <h4 class="text-white font-bold uppercase font-heading text-xl">Operating Hours</h4>
+                  <p class="text-gray-400 text-sm">Monday – Sunday: 6:00 AM – 10:00 PM (Closed Overnight)</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-4">
+                <div class="w-10 h-10 bg-brand-lime/10 text-brand-lime flex items-center justify-center text-lg rounded-sm shrink-0">
+                  <i class="fa-solid fa-solar-panel"></i>
+                </div>
+                <div>
+                  <h4 class="text-white font-bold uppercase font-heading text-xl">Emergency Power Backup</h4>
+                  <p class="text-gray-400 text-sm">Equipped with custom hybrid solar battery storage for continuous lighting & fans during grid outages.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-brand-card border border-brand-border p-8 rounded-sm">
+            <h3 class="text-3xl font-bold text-white mb-6">Send Us A Message</h3>
+            <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+              <div>
+                <label class="block text-xs text-gray-400 mb-1 uppercase font-mono">Full Name</label>
+                <input type="text" required class="w-full bg-black border border-brand-border text-white text-sm p-3 rounded outline-none focus:border-brand-lime">
+              </div>
+              <div>
+                <label class="block text-xs text-gray-400 mb-1 uppercase font-mono">Mobile / Email</label>
+                <input type="text" required class="w-full bg-black border border-brand-border text-white text-sm p-3 rounded outline-none focus:border-brand-lime">
+              </div>
+              <div>
+                <label class="block text-xs text-gray-400 mb-1 uppercase font-mono">Inquiry Type</label>
+                <select class="w-full bg-black border border-brand-border text-white text-sm p-3 rounded outline-none focus:border-brand-lime">
+                  <option>Membership Rate</option>
+                  <option>Biometric Registration</option>
+                  <option>Personal Coaching</option>
+                  <option>Other Concerns</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs text-gray-400 mb-1 uppercase font-mono">Message</label>
+                <textarea rows="4" required class="w-full bg-black border border-brand-border text-white text-sm p-3 rounded outline-none focus:border-brand-lime"></textarea>
+              </div>
+              <button type="submit" class="w-full bg-brand-lime text-black font-bold font-heading text-xl py-3 rounded-sm hover:bg-lime-400 transition">
+                TRANSMIT MESSAGE
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SIGNUP MODAL -->
+  <div id="signup-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-brand-card border border-brand-lime p-8 rounded-sm max-w-md w-full relative">
+      <button onclick="closeSignupModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <h3 class="text-3xl font-bold text-white mb-2" id="modal-plan-title">Register Plan</h3>
+      <p class="text-xs text-gray-400 mb-6">Complete registration below to reserve your facial recognition biometric profile setup.</p>
+      
+      <form onsubmit="handleModalSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs text-gray-400 mb-1">Full Name</label>
+          <input type="text" required class="w-full bg-black border border-brand-border text-white text-sm p-2.5 rounded focus:border-brand-lime outline-none">
+        </div>
+        <div>
+          <label class="block text-xs text-gray-400 mb-1">Contact Number</label>
+          <input type="tel" required class="w-full bg-black border border-brand-border text-white text-sm p-2.5 rounded focus:border-brand-lime outline-none">
+        </div>
+        <button type="submit" class="w-full bg-brand-lime text-black font-bold font-heading text-xl py-3 rounded-sm hover:bg-lime-400 transition">
+          CONFIRM REGISTRATION
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-black border-t border-brand-border py-8 text-xs text-gray-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center space-x-2">
+        <span class="text-brand-lime font-bold">LJ FITNESS GYM</span>
+        <span>•</span>
+        <span>Pampanga, Philippines</span>
+      </div>
+      <div>
+        <span>Hours: 6:00 AM – 10:00 PM Daily (Non-24/7)</span>
+      </div>
+      <div class="text-gray-600">
+        © 2026 LJ Fitness Gym. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT CONTROLLERS -->
+  <script>
+    // Page Router
+    function switchPage(pageId) {
+      document.querySelectorAll('.page-content').forEach(el => el.classList.add('hidden'));
+      const targetPage = document.getElementById(`page-${pageId}`);
+      if (targetPage) targetPage.classList.remove('hidden');
+
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        if (btn.getAttribute('data-target') === pageId) {
+          btn.classList.remove('text-gray-400');
+          btn.classList.add('text-brand-lime');
+        } else {
+          btn.classList.remove('text-brand-lime');
+          btn.classList.add('text-gray-400');
+        }
+      });
+
+      document.getElementById('mobile-menu').classList.add('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // Equipment Filters
+    function filterGear(category) {
+      const items = document.querySelectorAll('.gear-item');
+      items.forEach(item => {
+        if (category === 'all' || item.classList.contains(category)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Billing Toggle
+    let currentBilling = 'monthly';
+    function setBilling(type) {
+      currentBilling = type;
+      const btnM = document.getElementById('toggle-monthly');
+      const btnA = document.getElementById('toggle-annual');
+      const priceStd = document.getElementById('price-standard');
+      const priceStu = document.getElementById('price-student');
+      const periodStd = document.getElementById('period-standard');
+      const periodStu = document.getElementById('period-student');
+
+      if (type === 'annual') {
+        btnA.className = "px-6 py-2 text-sm font-bold uppercase rounded-sm bg-brand-lime text-black";
+        btnM.className = "px-6 py-2 text-sm font-bold uppercase rounded-sm text-gray-400 hover:text-white";
+        priceStd.innerText = "₱1,020";
+        priceStu.innerText = "₱800";
+        periodStd.innerText = "/ mo (billed annually)";
+        periodStu.innerText = "/ mo (billed annually)";
+      } else {
+        btnM.className = "px-6 py-2 text-sm font-bold uppercase rounded-sm bg-brand-lime text-black";
+        btnA.className = "px-6 py-2 text-sm font-bold uppercase rounded-sm text-gray-400 hover:text-white";
+        priceStd.innerText = "₱1,200";
+        priceStu.innerText = "₱950";
+        periodStd.innerText = "/ month";
+        periodStu.innerText = "/ month";
+      }
+    }
+
+    // Kiosk Simulator
+    function simulateScan(result) {
+      const customName = document.getElementById('kiosk-custom-name').value.trim() || 'DEMO ATHLETE';
+      const statusIcon = document.getElementById('kiosk-status-icon');
+      const statusText = document.getElementById('kiosk-status-text');
+      const memberInfo = document.getElementById('kiosk-member-info');
+      const kioskName = document.getElementById('kiosk-name');
+      const log = document.getElementById('kiosk-log');
+
+      const timestamp = new Date().toLocaleTimeString();
+
+      if (result === 'success') {
+        statusIcon.className = "text-6xl text-brand-lime mb-4 animate-bounce";
+        statusIcon.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
+        statusText.className = "text-xl font-heading text-brand-lime tracking-wider";
+        statusText.innerText = "ACCESS GRANTED // TURNSTILE UNLOCKED";
+        
+        kioskName.innerText = customName.toUpperCase();
+        memberInfo.classList.remove('hidden');
+
+        const newLog = document.createElement('div');
+        newLog.className = "text-brand-lime";
+        newLog.innerText = `[${timestamp}] SCAN OK: Member (${customName}) verified via TVT camera. Turnstile unlocked.`;
+        log.appendChild(newLog);
+      } else {
+        statusIcon.className = "text-6xl text-red-500 mb-4";
+        statusIcon.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
+        statusText.className = "text-xl font-heading text-red-500 tracking-wider";
+        statusText.innerText = "ACCESS DENIED // UNKNOWN FACE";
+        memberInfo.classList.add('hidden');
+
+        const newLog = document.createElement('div');
+        newLog.className = "text-red-400";
+        newLog.innerText = `[${timestamp}] SCAN FAIL: Face confidence low for scan attempt. Access denied.`;
+        log.appendChild(newLog);
+      }
+
+      log.scrollTop = log.scrollHeight;
+    }
+
+    // Macro Target Engine
+    let targetTdee = 2661;
+    function calculateMacros() {
+      const sex = document.getElementById('calc-sex').value;
+      const age = parseFloat(document.getElementById('calc-age').value) || 25;
+      const height = parseFloat(document.getElementById('calc-height').value) || 175;
+      const weight = parseFloat(document.getElementById('calc-weight').value) || 75;
+      const activity = parseFloat(document.getElementById('calc-activity').value) || 1.55;
+      const goal = document.getElementById('calc-goal').value;
+
+      let bmr = (10 * weight) + (6.25 * height) - (5 * age);
+      if (sex === 'male') bmr += 5;
+      else bmr -= 161;
+
+      let tdee = bmr * activity;
+      if (goal === 'cut') tdee -= 500;
+      if (goal === 'bulk') tdee += 300;
+
+      targetTdee = Math.round(tdee);
+
+      const proteinGrams = Math.round(weight * 2.0);
+      const fatGrams = Math.round((tdee * 0.25) / 9);
+      const carbGrams = Math.max(0, Math.round((tdee - ((proteinGrams * 4) + (fatGrams * 9))) / 4));
+
+      document.getElementById('res-bmr').innerText = Math.round(bmr).toLocaleString();
+      document.getElementById('res-tdee').innerText = targetTdee.toLocaleString();
+      document.getElementById('res-protein').innerText = `${proteinGrams}g`;
+      document.getElementById('res-carbs').innerText = `${carbGrams}g`;
+      document.getElementById('res-fats').innerText = `${fatGrams}g`;
+
+      document.getElementById('intake-target-txt').innerText = `Target: ${targetTdee.toLocaleString()} kcal`;
+      updateProgress();
+    }
+
+    // Interactive Food Intake Engine
+    const foodDatabase = {
+      'chicken': { p: 0.31, c: 0.00, f: 0.036, kcal: 1.65 },
+      'rice': { p: 0.027, c: 0.28, f: 0.003, kcal: 1.30 },
+      'egg': { p: 0.13, c: 0.01, f: 0.11, kcal: 1.55 },
+      'beef': { p: 0.26, c: 0.00, f: 0.15, kcal: 2.50 },
+      'pork': { p: 0.27, c: 0.00, f: 0.14, kcal: 2.40 },
+      'fish': { p: 0.20, c: 0.00, f: 0.05, kcal: 1.20 },
+      'oats': { p: 0.17, c: 0.66, f: 0.07, kcal: 3.89 },
+      'banana': { p: 0.011, c: 0.23, f: 0.003, kcal: 0.89 },
+      'milk': { p: 0.034, c: 0.05, f: 0.01, kcal: 0.42 },
+      'bread': { p: 0.09, c: 0.49, f: 0.03, kcal: 2.65 },
+      'whey': { p: 0.80, c: 0.06, f: 0.04, kcal: 3.80 },
+      'potato': { p: 0.02, c: 0.17, f: 0.001, kcal: 0.77 }
+    };
+
+    let loggedFoods = [];
+
+    function addFoodItem(e) {
+      e.preventDefault();
+      const nameInput = document.getElementById('food-name').value.trim();
+      const gramsInput = parseFloat(document.getElementById('food-grams').value) || 100;
+
+      if (!nameInput || gramsInput <= 0) return;
+
+      const lowerKey = nameInput.toLowerCase();
+      let matchedKey = Object.keys(foodDatabase).find(key => lowerKey.includes(key));
+
+      let profile = matchedKey ? foodDatabase[matchedKey] : { p: 0.15, c: 0.20, f: 0.05, kcal: 1.80 };
+
+      const calories = Math.round(gramsInput * profile.kcal);
+      const protein = Math.round(gramsInput * profile.p);
+      const carbs = Math.round(gramsInput * profile.c);
+      const fats = Math.round(gramsInput * profile.f);
+
+      const foodEntry = {
+        id: Date.now(),
+        name: nameInput,
+        grams: gramsInput,
+        calories,
+        protein,
+        carbs,
+        fats
+      };
+
+      loggedFoods.push(foodEntry);
+      renderFoodLog();
+
+      document.getElementById('food-name').value = '';
+      document.getElementById('food-grams').value = '150';
+    }
+
+    function removeFoodItem(id) {
+      loggedFoods = loggedFoods.filter(item => item.id !== id);
+      renderFoodLog();
+    }
+
+    function clearFoodLog() {
+      loggedFoods = [];
+      renderFoodLog();
+    }
+
+    function renderFoodLog() {
+      const tbody = document.getElementById('food-log-body');
+      tbody.innerHTML = '';
+
+      let totalKcal = 0;
+      let totalP = 0;
+      let totalC = 0;
+      let totalF = 0;
+
+      if (loggedFoods.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" class="p-4 text-center text-gray-600">No food items logged yet. Type a food item above!</td></tr>`;
+      } else {
+        loggedFoods.forEach(item => {
+          totalKcal += item.calories;
+          totalP += item.protein;
+          totalC += item.carbs;
+          totalF += item.fats;
+
+          const row = document.createElement('tr');
+          row.className = "hover:bg-brand-accent/50 transition";
+          row.innerHTML = `
+            <td class="p-3 text-white font-bold">${item.name}</td>
+            <td class="p-3 text-gray-400">${item.grams}g</td>
+            <td class="p-3 text-brand-lime font-bold">${item.calories} kcal</td>
+            <td class="p-3 text-white">${item.protein}g</td>
+            <td class="p-3 text-amber-400">${item.carbs}g</td>
+            <td class="p-3 text-emerald-400">${item.fats}g</td>
+            <td class="p-3 text-right">
+              <button onclick="removeFoodItem(${item.id})" class="text-xs text-red-500 hover:text-red-400 px-2 py-1">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </td>
+          `;
+          tbody.appendChild(row);
+        });
+      }
+
+      document.getElementById('sum-calories').innerText = totalKcal.toLocaleString();
+      document.getElementById('sum-protein').innerText = totalP.toLocaleString();
+      document.getElementById('sum-carbs').innerText = totalC.toLocaleString();
+      document.getElementById('sum-fats').innerText = totalF.toLocaleString();
+
+      document.getElementById('intake-logged-txt').innerText = `Logged: ${totalKcal.toLocaleString()} kcal`;
+      updateProgress(totalKcal);
+    }
+
+    function updateProgress(loggedKcal = 0) {
+      const pct = Math.min(100, Math.round((loggedKcal / targetTdee) * 100));
+      const bar = document.getElementById('intake-progress-bar');
+      bar.style.width = `${pct}%`;
+
+      if (pct > 105) bar.className = "bg-red-500 h-full transition-all duration-500";
+      else bar.className = "bg-brand-lime h-full transition-all duration-500";
+    }
+
+    // Modal & Form Submissions
+    function openSignupModal(planName) {
+      document.getElementById('modal-plan-title').innerText = `Register for ${planName}`;
+      document.getElementById('signup-modal').classList.remove('hidden');
+    }
+
+    function closeSignupModal() {
+      document.getElementById('signup-modal').classList.add('hidden');
+    }
+
+    function handleModalSubmit(e) {
+      e.preventDefault();
+      alert("Registration received! Please present your identification at the front desk to complete facial biometric enrollment.");
+      closeSignupModal();
+    }
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      alert("Your message has been transmitted to LJ Fitness Gym administration.");
+    }
+
+    // Initialize Log
+    renderFoodLog();
+  </script>
+</body>
+</html>
