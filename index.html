@@ -102,7 +102,7 @@
               FORGE YOUR <br/><span class="text-brand-lime">UNBREAKABLE</span> BODY
             </h1>
             <p class="text-gray-400 mt-6 text-lg max-w-xl">
-              Pampanga’s premier two-level facility equipped with heavy-duty iron, mezzanine cardio deck, touchless facial recognition entry, and hybrid solar backup power.
+              Pampanga's premier two-level facility equipped with heavy-duty iron, mezzanine cardio deck, touchless facial recognition entry, and hybrid solar backup power.
             </p>
             <div class="mt-8 flex flex-wrap gap-4">
               <button onclick="switchPage('memberships')" class="bg-brand-lime text-black px-8 py-3.5 font-bold font-heading text-xl rounded-sm hover:bg-lime-400 transition glow-lime">
@@ -126,7 +126,7 @@
                 </div>
                 <div class="flex justify-between items-center">
                   <span class="text-gray-300 font-semibold text-sm">Facial Recognition Check-in</span>
-                  <span class="text-brand-lime font-mono text-sm font-bold">TVT Biometric Active</span>
+                  <span class="text-brand-lime font-mono text-sm font-bold">Biometric System Active</span>
                 </div>
                 <div class="flex justify-between items-center">
                   <span class="text-gray-300 font-semibold text-sm">Heavy Dumbbell Rack</span>
@@ -172,7 +172,7 @@
             </div>
             <h3 class="text-3xl font-bold text-white mb-2">Touchless Smart Access</h3>
             <p class="text-gray-400 text-sm leading-relaxed">
-              No cards or keyfobs required. Seamlessly enter the facility using high-speed TVT facial recognition hardware linked directly to active memberships.
+              No cards or keyfobs required. Seamlessly enter the facility using high-speed facial recognition hardware linked directly to active memberships.
             </p>
           </div>
         </div>
@@ -247,71 +247,146 @@
         <div class="text-center mb-12">
           <h1 class="text-6xl font-bold text-white">MEMBERSHIP <span class="text-brand-lime">PLANS</span></h1>
           <p class="text-gray-400 text-sm uppercase tracking-widest">Straightforward pricing. No hidden fees.</p>
-          
-          <div class="inline-flex items-center bg-brand-card border border-brand-border p-1 rounded-sm mt-8">
-            <button id="toggle-monthly" onclick="setBilling('monthly')" class="px-6 py-2 text-sm font-bold uppercase rounded-sm bg-brand-lime text-black">Monthly</button>
-            <button id="toggle-annual" onclick="setBilling('annual')" class="px-6 py-2 text-sm font-bold uppercase rounded-sm text-gray-400 hover:text-white">Annual (Save 15%)</button>
+        </div>
+
+        <!-- PRICING TABLE -->
+        <div class="bg-brand-card border border-brand-border rounded-sm overflow-hidden mb-10">
+          <div class="p-6 border-b border-brand-border bg-black/40 flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+              <i class="fa-solid fa-tags text-brand-lime text-xl"></i>
+              <span class="font-bold text-white uppercase text-sm">Regular Membership Rates</span>
+            </div>
+            <span class="text-xs font-mono bg-brand-lime/10 text-brand-lime px-3 py-1 rounded">ALL ACCESS INCLUDED</span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-brand-border text-xs font-mono text-brand-lime uppercase bg-black/20">
+                  <th class="p-4">Duration</th>
+                  <th class="p-4">Total Price</th>
+                  <th class="p-4">Per Month</th>
+                  <th class="p-4">You Save</th>
+                  <th class="p-4 text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-brand-border text-sm">
+                <tr class="hover:bg-brand-accent/30 transition">
+                  <td class="p-4 font-bold text-white text-lg">1 Month</td>
+                  <td class="p-4 font-mono font-bold text-brand-lime text-lg">₱1,200</td>
+                  <td class="p-4 font-mono text-gray-300">₱1,200 / mo</td>
+                  <td class="p-4 text-gray-500">—</td>
+                  <td class="p-4 text-right">
+                    <button onclick="openSignupModal('1 Month - ₱1,200')" class="bg-brand-lime text-black font-bold text-xs px-4 py-2 rounded-sm hover:bg-lime-400 transition">SELECT</button>
+                  </td>
+                </tr>
+                <tr class="hover:bg-brand-accent/30 transition bg-brand-lime/5">
+                  <td class="p-4 font-bold text-white text-lg">3 Months <span class="text-xs bg-brand-lime text-black px-2 py-0.5 rounded font-mono ml-2">POPULAR</span></td>
+                  <td class="p-4 font-mono font-bold text-brand-lime text-lg">₱2,500</td>
+                  <td class="p-4 font-mono text-gray-300">₱833 / mo</td>
+                  <td class="p-4 font-mono text-emerald-400 font-bold">SAVE ₱1,100</td>
+                  <td class="p-4 text-right">
+                    <button onclick="openSignupModal('3 Months - ₱2,500')" class="bg-brand-lime text-black font-bold text-xs px-4 py-2 rounded-sm hover:bg-lime-400 transition">SELECT</button>
+                  </td>
+                </tr>
+                <tr class="hover:bg-brand-accent/30 transition">
+                  <td class="p-4 font-bold text-white text-lg">6 Months</td>
+                  <td class="p-4 font-mono font-bold text-brand-lime text-lg">₱4,300</td>
+                  <td class="p-4 font-mono text-gray-300">₱717 / mo</td>
+                  <td class="p-4 font-mono text-emerald-400 font-bold">SAVE ₱2,900</td>
+                  <td class="p-4 text-right">
+                    <button onclick="openSignupModal('6 Months - ₱4,300')" class="bg-brand-lime text-black font-bold text-xs px-4 py-2 rounded-sm hover:bg-lime-400 transition">SELECT</button>
+                  </td>
+                </tr>
+                <tr class="hover:bg-brand-accent/30 transition">
+                  <td class="p-4 font-bold text-white text-lg">1 Year <span class="text-xs bg-emerald-500 text-black px-2 py-0.5 rounded font-mono ml-2">BEST VALUE</span></td>
+                  <td class="p-4 font-mono font-bold text-brand-lime text-lg">₱8,500</td>
+                  <td class="p-4 font-mono text-gray-300">₱708 / mo</td>
+                  <td class="p-4 font-mono text-emerald-400 font-bold">SAVE ₱5,900</td>
+                  <td class="p-4 text-right">
+                    <button onclick="openSignupModal('1 Year - ₱8,500')" class="bg-brand-lime text-black font-bold text-xs px-4 py-2 rounded-sm hover:bg-lime-400 transition">SELECT</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-brand-card border border-brand-border p-8 rounded-sm flex flex-col justify-between">
+        <!-- DAY PASS & STUDENT -->
+        <div class="grid md:grid-cols-2 gap-6 mb-10">
+          <div class="bg-brand-card border border-brand-border p-6 rounded-sm flex items-center justify-between">
             <div>
-              <div class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-2">Flexibility</div>
-              <h3 class="text-3xl font-bold text-white">Day Pass</h3>
-              <div class="my-6">
-                <span class="text-5xl font-bold text-white font-heading">₱150</span>
+              <div class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-1">Walk-In</div>
+              <h3 class="text-2xl font-bold text-white">Day Pass</h3>
+              <div class="mt-2">
+                <span class="text-3xl font-bold text-white font-heading">₱150</span>
                 <span class="text-gray-400 text-sm">/ visit</span>
               </div>
-              <ul class="space-y-3 text-sm text-gray-300 mb-8">
-                <li class="flex items-center"><i class="fa-solid fa-check text-brand-lime mr-3"></i> Full access to Level 1 & 2</li>
-                <li class="flex items-center"><i class="fa-solid fa-check text-brand-lime mr-3"></i> Locker room & shower access</li>
-                <li class="flex items-center"><i class="fa-solid fa-check text-brand-lime mr-3"></i> Operating hours entry</li>
-              </ul>
             </div>
-            <button onclick="openSignupModal('Day Pass')" class="w-full bg-brand-accent hover:bg-gray-800 text-white font-bold font-heading py-3 text-lg rounded-sm transition border border-brand-border">
-              SELECT PASS
+            <button onclick="openSignupModal('Day Pass - ₱150')" class="bg-brand-accent hover:bg-gray-800 text-white font-bold font-heading px-5 py-2.5 rounded-sm transition border border-brand-border">
+              GET PASS
             </button>
           </div>
 
-          <div class="bg-brand-card border-2 border-brand-lime p-8 rounded-sm flex flex-col justify-between relative glow-lime-sm">
-            <div class="absolute -top-3 right-6 bg-brand-lime text-black text-xs font-bold font-mono px-3 py-1 uppercase">Most Popular</div>
+          <div class="bg-brand-card border border-brand-border p-6 rounded-sm flex items-center justify-between">
             <div>
-              <div class="text-xs font-mono text-brand-lime uppercase tracking-widest mb-2">Full Access</div>
-              <h3 class="text-3xl font-bold text-white">Standard Athlete</h3>
-              <div class="my-6">
-                <span class="text-5xl font-bold text-brand-lime font-heading" id="price-standard">₱1,200</span>
-                <span class="text-gray-400 text-sm" id="period-standard">/ month</span>
+              <div class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-1">Student Rate (Valid ID)</div>
+              <h3 class="text-2xl font-bold text-white">Student Scholar</h3>
+              <div class="mt-2">
+                <span class="text-3xl font-bold text-white font-heading">₱950</span>
+                <span class="text-gray-400 text-sm">/ month</span>
               </div>
-              <ul class="space-y-3 text-sm text-gray-300 mb-8">
-                <li class="flex items-center"><i class="fa-solid fa-check text-brand-lime mr-3"></i> Touchless Biometric Facial Access</li>
-                <li class="flex items-center"><i class="fa-solid fa-check text-brand-lime mr-3"></i> Unlimited Gym & Mezzanine Access</li>
-                <li class="flex items-center"><i class="fa-solid fa-check text-brand-lime mr-3"></i> Solar Backup Ventilation Included</li>
-                <li class="flex items-center"><i class="fa-solid fa-check text-brand-lime mr-3"></i> Free Locker Usage</li>
-              </ul>
             </div>
-            <button onclick="openSignupModal('Standard Athlete')" class="w-full bg-brand-lime text-black font-bold font-heading py-3 text-lg rounded-sm hover:bg-lime-400 transition">
-              REGISTER NOW
+            <button onclick="openSignupModal('Student Scholar - ₱950/mo')" class="bg-brand-accent hover:bg-gray-800 text-white font-bold font-heading px-5 py-2.5 rounded-sm transition border border-brand-border">
+              REGISTER
             </button>
           </div>
+        </div>
 
-          <div class="bg-brand-card border border-brand-border p-8 rounded-sm flex flex-col justify-between">
+        <!-- PROMO INQUIRY -->
+        <div class="bg-brand-lime/5 border border-brand-lime/30 p-6 rounded-sm">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <div class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-2">Student Rate</div>
-              <h3 class="text-3xl font-bold text-white">Student Scholar</h3>
-              <div class="my-6">
-                <span class="text-5xl font-bold text-white font-heading" id="price-student">₱950</span>
-                <span class="text-gray-400 text-sm" id="period-student">/ month</span>
+              <div class="flex items-center space-x-2 mb-2">
+                <i class="fa-solid fa-bolt text-brand-lime text-xl"></i>
+                <h3 class="text-2xl font-bold text-white">CURRENT <span class="text-brand-lime">PROMOS</span></h3>
               </div>
-              <ul class="space-y-3 text-sm text-gray-300 mb-8">
-                <li class="flex items-center"><i class="fa-solid fa-check text-brand-lime mr-3"></i> Valid Student ID required</li>
-                <li class="flex items-center"><i class="fa-solid fa-check text-brand-lime mr-3"></i> Facial Recognition Access</li>
-                <li class="flex items-center"><i class="fa-solid fa-check text-brand-lime mr-3"></i> All Equipment & Cardio Deck</li>
-              </ul>
+              <p class="text-gray-400 text-sm">We regularly run special promotions, bundle deals, and referral discounts. Ask our staff for the latest offers!</p>
             </div>
-            <button onclick="openSignupModal('Student Scholar')" class="w-full bg-brand-accent hover:bg-gray-800 text-white font-bold font-heading py-3 text-lg rounded-sm transition border border-brand-border">
-              REGISTER STUDENT
+            <button onclick="openPromoModal()" class="bg-brand-lime text-black font-bold font-heading text-lg px-6 py-3 rounded-sm hover:bg-lime-400 transition shrink-0">
+              <i class="fa-solid fa-message mr-2"></i>ASK FOR PROMO
             </button>
+          </div>
+        </div>
+
+        <!-- WHAT'S INCLUDED -->
+        <div class="mt-10 bg-brand-card border border-brand-border p-6 rounded-sm">
+          <h3 class="text-xl font-bold text-white mb-4">ALL MEMBERSHIPS INCLUDE:</h3>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div class="flex items-center space-x-2 text-sm text-gray-300">
+              <i class="fa-solid fa-check text-brand-lime"></i>
+              <span>Touchless Biometric Facial Access</span>
+            </div>
+            <div class="flex items-center space-x-2 text-sm text-gray-300">
+              <i class="fa-solid fa-check text-brand-lime"></i>
+              <span>Unlimited Gym & Mezzanine Access</span>
+            </div>
+            <div class="flex items-center space-x-2 text-sm text-gray-300">
+              <i class="fa-solid fa-check text-brand-lime"></i>
+              <span>Solar Backup Ventilation</span>
+            </div>
+            <div class="flex items-center space-x-2 text-sm text-gray-300">
+              <i class="fa-solid fa-check text-brand-lime"></i>
+              <span>Free Locker Usage</span>
+            </div>
+            <div class="flex items-center space-x-2 text-sm text-gray-300">
+              <i class="fa-solid fa-check text-brand-lime"></i>
+              <span>Locker Room & Shower Access</span>
+            </div>
+            <div class="flex items-center space-x-2 text-sm text-gray-300">
+              <i class="fa-solid fa-check text-brand-lime"></i>
+              <span>All Equipment & Cardio Deck</span>
+            </div>
           </div>
         </div>
       </div>
@@ -322,7 +397,7 @@
       <div class="max-w-4xl mx-auto px-4 py-16">
         <div class="text-center mb-10">
           <div class="inline-block bg-brand-lime/10 text-brand-lime font-mono text-xs px-3 py-1 rounded mb-3">HARDWARE INTERFACE DEMO</div>
-          <h1 class="text-5xl font-bold text-white">TVT <span class="text-brand-lime">FACIAL RECOGNITION</span> CHECK-IN</h1>
+          <h1 class="text-5xl font-bold text-white">FACIAL <span class="text-brand-lime">RECOGNITION</span> CHECK-IN</h1>
           <p class="text-gray-400 text-sm">Simulate member entry verification at the LJ Fitness turnstile gate</p>
         </div>
 
@@ -336,7 +411,7 @@
           <!-- Scanner Screen -->
           <div class="relative bg-black h-72 rounded border border-brand-border flex flex-col items-center justify-center overflow-hidden mb-6">
             <div class="absolute inset-0 scan-line bg-gradient-to-b from-brand-lime/30 to-transparent h-1/4"></div>
-            
+
             <div id="kiosk-status-icon" class="text-6xl text-gray-600 mb-4">
               <i class="fa-solid fa-user-shield"></i>
             </div>
@@ -363,7 +438,7 @@
           <div class="mt-6 border-t border-brand-border pt-4">
             <div class="text-xs font-mono text-gray-500 mb-2">LOCAL SERVER EVENT LOG:</div>
             <div id="kiosk-log" class="bg-black/60 p-3 rounded text-xs font-mono h-24 overflow-y-auto space-y-1 text-gray-400">
-              <div>[SYSTEM]: TVT Terminal Initialized... Ready for input.</div>
+              <div>[SYSTEM]: Biometric Terminal Initialized... Ready for input.</div>
             </div>
           </div>
         </div>
@@ -383,7 +458,7 @@
         <div class="grid md:grid-cols-2 gap-8 bg-brand-card border border-brand-border p-8 rounded-lg shadow-2xl mb-12">
           <div class="space-y-4">
             <h3 class="text-2xl font-bold text-white border-b border-brand-border pb-2">1. Your Body Parameters</h3>
-            
+
             <div class="grid grid-cols-2 gap-4">
               <div>
                 <label class="block text-xs text-gray-400 mb-1">Sex</label>
@@ -436,7 +511,7 @@
           <div class="bg-black/60 border border-brand-border p-6 rounded flex flex-col justify-between">
             <div>
               <h3 class="text-2xl font-bold text-white border-b border-brand-border pb-2 mb-4">2. Calculated Target</h3>
-              
+
               <div class="grid grid-cols-2 gap-4 mb-6">
                 <div class="bg-brand-card p-3 rounded border border-brand-border">
                   <span class="text-[10px] font-mono text-gray-400 block uppercase">Basal Metabolic Rate</span>
@@ -521,7 +596,6 @@
                 </tr>
               </thead>
               <tbody id="food-log-body" class="divide-y divide-brand-border text-sm font-mono text-gray-300">
-                <!-- Dynamic Rows Inserted Here -->
               </tbody>
             </table>
           </div>
@@ -664,6 +738,7 @@
                 <label class="block text-xs text-gray-400 mb-1 uppercase font-mono">Inquiry Type</label>
                 <select class="w-full bg-black border border-brand-border text-white text-sm p-3 rounded outline-none focus:border-brand-lime">
                   <option>Membership Rate</option>
+                  <option>Promo / Discount Inquiry</option>
                   <option>Biometric Registration</option>
                   <option>Personal Coaching</option>
                   <option>Other Concerns</option>
@@ -692,7 +767,7 @@
       </button>
       <h3 class="text-3xl font-bold text-white mb-2" id="modal-plan-title">Register Plan</h3>
       <p class="text-xs text-gray-400 mb-6">Complete registration below to reserve your facial recognition biometric profile setup.</p>
-      
+
       <form onsubmit="handleModalSubmit(event)" class="space-y-4">
         <div>
           <label class="block text-xs text-gray-400 mb-1">Full Name</label>
@@ -704,6 +779,45 @@
         </div>
         <button type="submit" class="w-full bg-brand-lime text-black font-bold font-heading text-xl py-3 rounded-sm hover:bg-lime-400 transition">
           CONFIRM REGISTRATION
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- PROMO MODAL -->
+  <div id="promo-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-brand-card border border-brand-lime p-8 rounded-sm max-w-md w-full relative">
+      <button onclick="closePromoModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <h3 class="text-3xl font-bold text-white mb-2">ASK FOR <span class="text-brand-lime">PROMO</span></h3>
+      <p class="text-xs text-gray-400 mb-6">Send your inquiry and our staff will get back to you with the latest available promotions.</p>
+
+      <form onsubmit="handlePromoSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs text-gray-400 mb-1">Full Name</label>
+          <input type="text" required class="w-full bg-black border border-brand-border text-white text-sm p-2.5 rounded focus:border-brand-lime outline-none">
+        </div>
+        <div>
+          <label class="block text-xs text-gray-400 mb-1">Contact Number</label>
+          <input type="tel" required class="w-full bg-black border border-brand-border text-white text-sm p-2.5 rounded focus:border-brand-lime outline-none">
+        </div>
+        <div>
+          <label class="block text-xs text-gray-400 mb-1">Plan You're Interested In</label>
+          <select class="w-full bg-black border border-brand-border text-white text-sm p-2.5 rounded focus:border-brand-lime outline-none">
+            <option>1 Month</option>
+            <option>3 Months</option>
+            <option>6 Months</option>
+            <option>1 Year</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs text-gray-400 mb-1">Message (optional)</label>
+          <textarea rows="3" placeholder="e.g. Is there a student promo? Referral discount?" class="w-full bg-black border border-brand-border text-white text-sm p-2.5 rounded focus:border-brand-lime outline-none"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-brand-lime text-black font-bold font-heading text-xl py-3 rounded-sm hover:bg-lime-400 transition">
+          SEND PROMO INQUIRY
         </button>
       </form>
     </div>
@@ -765,34 +879,6 @@
       });
     }
 
-    // Billing Toggle
-    let currentBilling = 'monthly';
-    function setBilling(type) {
-      currentBilling = type;
-      const btnM = document.getElementById('toggle-monthly');
-      const btnA = document.getElementById('toggle-annual');
-      const priceStd = document.getElementById('price-standard');
-      const priceStu = document.getElementById('price-student');
-      const periodStd = document.getElementById('period-standard');
-      const periodStu = document.getElementById('period-student');
-
-      if (type === 'annual') {
-        btnA.className = "px-6 py-2 text-sm font-bold uppercase rounded-sm bg-brand-lime text-black";
-        btnM.className = "px-6 py-2 text-sm font-bold uppercase rounded-sm text-gray-400 hover:text-white";
-        priceStd.innerText = "₱1,020";
-        priceStu.innerText = "₱800";
-        periodStd.innerText = "/ mo (billed annually)";
-        periodStu.innerText = "/ mo (billed annually)";
-      } else {
-        btnM.className = "px-6 py-2 text-sm font-bold uppercase rounded-sm bg-brand-lime text-black";
-        btnA.className = "px-6 py-2 text-sm font-bold uppercase rounded-sm text-gray-400 hover:text-white";
-        priceStd.innerText = "₱1,200";
-        priceStu.innerText = "₱950";
-        periodStd.innerText = "/ month";
-        periodStu.innerText = "/ month";
-      }
-    }
-
     // Kiosk Simulator
     function simulateScan(result) {
       const customName = document.getElementById('kiosk-custom-name').value.trim() || 'DEMO ATHLETE';
@@ -809,13 +895,13 @@
         statusIcon.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
         statusText.className = "text-xl font-heading text-brand-lime tracking-wider";
         statusText.innerText = "ACCESS GRANTED // TURNSTILE UNLOCKED";
-        
+
         kioskName.innerText = customName.toUpperCase();
         memberInfo.classList.remove('hidden');
 
         const newLog = document.createElement('div');
         newLog.className = "text-brand-lime";
-        newLog.innerText = `[${timestamp}] SCAN OK: Member (${customName}) verified via TVT camera. Turnstile unlocked.`;
+        newLog.innerText = `[${timestamp}] SCAN OK: Member (${customName}) verified via facial recognition. Turnstile unlocked.`;
         log.appendChild(newLog);
       } else {
         statusIcon.className = "text-6xl text-red-500 mb-4";
@@ -1000,6 +1086,21 @@
       closeSignupModal();
     }
 
+    // PROMO MODAL
+    function openPromoModal() {
+      document.getElementById('promo-modal').classList.remove('hidden');
+    }
+
+    function closePromoModal() {
+      document.getElementById('promo-modal').classList.add('hidden');
+    }
+
+    function handlePromoSubmit(e) {
+      e.preventDefault();
+      alert("Promo inquiry sent! Our staff will contact you with the latest available offers.");
+      closePromoModal();
+    }
+
     function handleContactSubmit(e) {
       e.preventDefault();
       alert("Your message has been transmitted to LJ Fitness Gym administration.");
@@ -1009,4 +1110,4 @@
     renderFoodLog();
   </script>
 </body>
-</html>
+</html>   
